@@ -40,9 +40,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Matahari
     uniqueID: 2889156137
     locked: 0
@@ -63,6 +60,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 1175725089
+    locked: 0
+  - name: Default
+    uniqueID: 0
     locked: 0
   - name: Enemy
     uniqueID: 2516679775

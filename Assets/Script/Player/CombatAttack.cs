@@ -27,7 +27,10 @@ public class CombatAttack : MonoBehaviour
     public bool isAttacking = false;
 
     private AttackDetails attackDetails;
-   
+
+    public GameObject atkEffect;
+    public GameObject atkPos;
+
     void Start()
     {
         instance = this;
@@ -46,6 +49,8 @@ public class CombatAttack : MonoBehaviour
         if (!isAttacking)
         {
             isAttacking = true;
+            GameObject instanceAtk = (GameObject)Instantiate(atkEffect, atkPos.transform.position, Quaternion.identity);
+            Destroy(instanceAtk, 2f);
         }
     }
 
