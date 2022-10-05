@@ -35,6 +35,7 @@ public class IdleState : State
     public override void Exit()
     {
         base.Exit();
+
         if(flipAfterIdle)
         {
             entity.Flip();
