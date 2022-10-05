@@ -23,11 +23,15 @@ public class DashTeleport : MonoBehaviour
     //public GameObject fadeEffectPrefabs;
     //public GameObject fadeEffectLeftPrefabs;
 
+    private CinemachineImpulseSource cmShake;
+
     // Start is called before the first frame update
     void Start()
     {
         textCd.gameObject.SetActive(false);
         imageCd.fillAmount = 0.0f;
+
+        cmShake = GetComponent<CinemachineImpulseSource>();
     }
 
     // Update is called once per frame
@@ -63,7 +67,7 @@ public class DashTeleport : MonoBehaviour
                     Destroy(instanceDash, 2f);
 
                     //camera shake
-                    //cmShake.GenerateImpulse(0.7f);
+                    cmShake.GenerateImpulse(0.7f);
 
                     transform.position = new Vector2(transform.position.x + (-dashSpeed), transform.position.y);
                     nextDashTime = Time.time + cdTime;
@@ -93,7 +97,7 @@ public class DashTeleport : MonoBehaviour
                     GameObject instanceDash = (GameObject)Instantiate(tpEffectPrefabs, transform.position, Quaternion.identity);
                     Destroy(instanceDash, 2f);
 
-                    //cmShake.GenerateImpulse(0.7f);
+                    cmShake.GenerateImpulse(0.7f);
 
                     transform.position = new Vector2(transform.position.x + dashSpeed, transform.position.y);
                     nextDashTime = Time.time + cdTime;
