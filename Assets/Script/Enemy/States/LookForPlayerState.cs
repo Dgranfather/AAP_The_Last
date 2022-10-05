@@ -70,14 +70,14 @@ public class LookForPlayerState : State
         {
 
             isAllTurnsDone = true;
-            //isAllTurnsTimeDone = true;
+            isAllTurnsTimeDone = true;
 
         }
 
-        if(Time.time >= lastTurnTime + stateData.timeBetweenTurns && isAllTurnsDone)
+        if (Time.time >= lastTurnTime + stateData.timeBetweenTurns && isAllTurnsDone)
         {
             isAllTurnsDone = true;
-            //isAllTurnsTimeDone = true;
+            isAllTurnsTimeDone = true;
 
         }
     }
