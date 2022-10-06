@@ -5494,7 +5494,7 @@ PrefabInstance:
       objectReference: {fileID: 5654554311969651446, guid: 647b56a38c7eef446916799db9637b2b, type: 3}
     - target: {fileID: 7521769420765588440, guid: 404cb62e9c2125b4e88fa56fe307a6f0, type: 3}
       propertyPath: currentHealth
-      value: 50
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7521769420765588440, guid: 404cb62e9c2125b4e88fa56fe307a6f0, type: 3}
       propertyPath: particleBlood
@@ -6091,7 +6091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8c21e0b558b60745bd1582f3c62d56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyDamage: 200
+  enemyDamage: 15
 --- !u!61 &1666003840
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6919,6 +6919,27 @@ MonoBehaviour:
     m_DissipationDistance: 100
     m_PropagationSpeed: 343
   m_DefaultVelocity: {x: -1, y: -1, z: 0}
+--- !u!114 &1904945144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134861459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a197885cff7332e4e8bf189cae0bb38e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  currentExp: 0
+  toLevelUp: 0a000000190000003200000064000000c8000000
+  hpLevel: 320000006400000096000000c8000000fa000000
+  atkLevel: 0a000000140000001e0000002800000032000000
+  defLevel: 050000000a0000000f0000001400000019000000
+  currentHp: 0
+  currentAtk: 0
+  currentDef: 0
 --- !u!1 &1931115014
 GameObject:
   m_ObjectHideFlags: 0

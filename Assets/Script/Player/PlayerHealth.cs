@@ -21,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
         currentHealth = maxHealth;
     }
-
+    
     // Update is called once per frame
     private void FixedUpdate()
     {
@@ -45,5 +45,10 @@ public class PlayerHealth : MonoBehaviour
         Instantiate(particleBody, transform.position, particleBody.transform.rotation);
         Instantiate(particleBlood, transform.position, particleBlood.transform.rotation);
         Destroy(gameObject);
+    }
+
+    public void setMaxHealthPlayer(int health)
+    {
+        maxHealth = health;
     }
 }
