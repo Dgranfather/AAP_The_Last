@@ -7,16 +7,25 @@ public class MovementPlayer : MonoBehaviour
 {
     private Rigidbody2D rb;
     public Animator animator;
-    //public static MovementPlayer instance;
+    private float knockbackStartTime;
 
-    //movement and jump
+    [SerializeField]
+    private float knockbackDuration;
+
+    [SerializeField]
+    private Vector2 knockbackSpeed;
+
+
     public float moveSpeed;
     public float jumpForce;
     public bool ButtonLeft;
     public bool ButtonRight;
     private bool canJump;
-    private bool facingRight = true;
-    //public bool isAttacking = false;
+    private bool facingRight = true;   
+    private bool knockback;
+
+
+    
 
     //invunerable
     private Renderer renderPlayer;
@@ -43,7 +52,7 @@ public class MovementPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        CheckKnockback();
     }
 
     private void FixedUpdate()
@@ -51,13 +60,13 @@ public class MovementPlayer : MonoBehaviour
         float move;
         Vector3 characterScale = transform.localScale;
 
-        if (ButtonLeft)
+        if (ButtonLeft && !knockback)
         {
             move = -moveSpeed * Time.deltaTime;
             characterScale.x = -1;
             facingRight = false;
         }
-        else if (ButtonRight)
+        else if (ButtonRight && !knockback)
         {
             move = moveSpeed * Time.deltaTime;
             characterScale.x = 1;
@@ -99,6 +108,8 @@ public class MovementPlayer : MonoBehaviour
             animator.SetFloat("Speed", 0);
         }
 
+   
+
     }
 
     public void jump()
@@ -112,13 +123,7 @@ public class MovementPlayer : MonoBehaviour
 
     }
 
-    //public void Attack()
-    //{
-    //    if(!isAttacking)
-    //    {
-    //        isAttacking = true;
-    //    }
-    //}
+    
 
     public void ButtonLeftDown()
     {
@@ -163,6 +168,22 @@ public class MovementPlayer : MonoBehaviour
         }
     }
 
+
+    public void Knockback(int direction)
+    {
+        knockback = true;
+        knockbackStartTime = Time.time;
+        rb.velocity = new Vector2(knockbackSpeed.x * direction, knockbackSpeed.y);
+    }
+
+    private void CheckKnockback()
+    {
+        if(Time.time >= knockbackStartTime + knockbackDuration && knockback)
+        {
+            knockback = false;
+            rb.velocity = new Vector2(0.0f, rb.velocity.y);
+        }
+
     IEnumerator Invulnerable()
     {
         Physics2D.IgnoreLayerCollision(8, 9, true);
@@ -180,6 +201,7 @@ public class MovementPlayer : MonoBehaviour
     public void isHitTrue (bool isHit)
     {
         isHitCheck = isHit;
+
     }
 
 }

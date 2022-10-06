@@ -9,7 +9,10 @@ public class CombatAttack : MonoBehaviour
     public static CombatAttack instance;
 
     [SerializeField]
-    private float attack1Radius, attack1Damage, attack2Radius, attack2Damage, attack3Radius, attack3Damage;
+    private float attack1Radius, attack2Radius, attack3Radius ;
+
+    [SerializeField]
+    private int attack1Damage, attack2Damage, attack3Damage;
 
     [SerializeField]
     private Transform attack1HitBoxPos;
@@ -27,11 +30,15 @@ public class CombatAttack : MonoBehaviour
     public bool isAttacking = false;
 
     private AttackDetails attackDetails;
+    private MovementPlayer MP;
+    private PlayerHealth PH;
    
     void Start()
     {
         instance = this;
         animator = GetComponent<Animator>();
+        MP = GetComponent<MovementPlayer>();
+        PH = GetComponent<PlayerHealth>();
     }
 
 
@@ -93,6 +100,24 @@ public class CombatAttack : MonoBehaviour
             collider.transform.parent.SendMessage("Damage", attackDetails);
         }
 
+    }
+
+    private void Damage(AttackDetails attackDetails)
+    {
+        int direction;
+
+        PH.TakeDamage(attackDetails.damageAmount);
+
+        if(attackDetails.position.x < transform.position.x)
+        {
+            direction = 1;
+        }
+        else
+        {
+            direction = -1;
+        }
+
+        MP.Knockback(direction);
     }
 
 
