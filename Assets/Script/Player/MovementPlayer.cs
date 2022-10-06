@@ -18,6 +18,14 @@ public class MovementPlayer : MonoBehaviour
     private bool facingRight = true;
     //public bool isAttacking = false;
 
+    //invunerable
+    private Renderer renderPlayer;
+    private Color c;
+    public float invulnerableTime;
+
+    public bool isHitCheck = false;
+    [SerializeField] private float knockback;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +35,9 @@ public class MovementPlayer : MonoBehaviour
         ButtonLeft = false;
         ButtonRight = false;
         canJump = false;
+
+        renderPlayer = GetComponent<Renderer>();
+        c = renderPlayer.material.color;
     }
 
     // Update is called once per frame
@@ -57,9 +68,26 @@ public class MovementPlayer : MonoBehaviour
             move = 0;
         }
 
-            rb.velocity = new Vector2(move, rb.velocity.y); //gerakin player sumbu x
-            transform.localScale = characterScale; //player dapat menghadap kiri kanan
-            animator.SetFloat("Speed",Mathf.Abs(move));
+        if (isHitCheck)
+        {
+            if (facingRight)
+            {
+                rb.velocity = new Vector2(-knockback, knockback);
+                //rb.AddForce(new Vector2(-knockback, knockback));
+                StartCoroutine("Invulnerable");
+            }
+            else
+            {
+                rb.velocity = new Vector2(knockback, knockback);
+                //rb.AddForce(new Vector2(knockback, knockback));
+                StartCoroutine("Invulnerable");
+            }
+            isHitCheck = false;
+        }
+
+        rb.velocity = new Vector2(move, rb.velocity.y); //gerakin player sumbu x
+        transform.localScale = characterScale; //player dapat menghadap kiri kanan
+        animator.SetFloat("Speed", Mathf.Abs(move));
 
         AnimJumpandFall();
         if (canJump)
@@ -77,9 +105,9 @@ public class MovementPlayer : MonoBehaviour
     {
         if (canJump)
         {
-           
+
             rb.AddForce(new Vector2(rb.velocity.x, jumpForce)); //lompat sumbu y
-            
+
         }
 
     }
@@ -130,9 +158,28 @@ public class MovementPlayer : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             canJump = false;
-            
-           
+
+
         }
+    }
+
+    IEnumerator Invulnerable()
+    {
+        Physics2D.IgnoreLayerCollision(8, 9, true);
+        c.a = 0.5f;
+        renderPlayer.material.color = c;
+
+        //fungsi buat wait time
+        yield return new WaitForSeconds(invulnerableTime);
+
+        Physics2D.IgnoreLayerCollision(8, 9, false);
+        c.a = 1f;
+        renderPlayer.material.color = c;
+    }
+
+    public void isHitTrue (bool isHit)
+    {
+        isHitCheck = isHit;
     }
 
 }

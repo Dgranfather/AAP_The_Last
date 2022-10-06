@@ -11,6 +11,8 @@ public class EnemyDamage : MonoBehaviour
         if(collision.tag == "Player")
         {
             collision.GetComponent<PlayerHealth>().TakeDamage(enemyDamage);
+            collision.GetComponent<MovementPlayer>().isHitTrue(true);
         }
     }
+
 }
