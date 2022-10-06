@@ -27,15 +27,22 @@ public class PlayerStats : MonoBehaviour
 
         thePlayerHealth = FindObjectOfType<PlayerHealth>();
         GetComponent<PlayerHealth>().setMaxHealthPlayer(currentHp);
+        Debug.Log("current level : " + currentLevel);
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (currentExp >= toLevelUp[currentLevel])
         {
             levelUp();
         }
+    }
+
+    public void addExp(int expToAdd)
+    {
+        currentExp += expToAdd;
     }
 
     public void levelUp()
