@@ -10,6 +10,11 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public HealthBar healthBar;
 
+    [SerializeField]
+    private GameObject
+        particleBody,
+        particleBlood;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +33,17 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth -= damage;
         healthBar.SetValue(currentHealth);
+
+        if(currentHealth <= 0.0f)
+        {
+            Die();
+        }
     }
 
+    private void Die()
+    {
+        Instantiate(particleBody, transform.position, particleBody.transform.rotation);
+        Instantiate(particleBlood, transform.position, particleBlood.transform.rotation);
+        Destroy(gameObject);
+    }
 }
