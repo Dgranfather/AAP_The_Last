@@ -21,11 +21,11 @@ public class MovementPlayer : MonoBehaviour
     public bool ButtonLeft;
     public bool ButtonRight;
     private bool canJump;
-    private bool facingRight = true;   
+    private bool facingRight = true;
     private bool knockback;
 
 
-    
+
 
     //invunerable
     private Renderer renderPlayer;
@@ -33,7 +33,7 @@ public class MovementPlayer : MonoBehaviour
     public float invulnerableTime;
 
     public bool isHitCheck = false;
-    [SerializeField] private float knockback;
+    //[SerializeField] private float knockback;
 
     // Start is called before the first frame update
     void Start()
@@ -81,13 +81,13 @@ public class MovementPlayer : MonoBehaviour
         {
             if (facingRight)
             {
-                rb.velocity = new Vector2(-knockback, knockback);
+                //rb.velocity = new Vector2(-knockback, knockback);
                 //rb.AddForce(new Vector2(-knockback, knockback));
                 StartCoroutine("Invulnerable");
             }
             else
             {
-                rb.velocity = new Vector2(knockback, knockback);
+                //rb.velocity = new Vector2(knockback, knockback);
                 //rb.AddForce(new Vector2(knockback, knockback));
                 StartCoroutine("Invulnerable");
             }
@@ -108,7 +108,7 @@ public class MovementPlayer : MonoBehaviour
             animator.SetFloat("Speed", 0);
         }
 
-   
+
 
     }
 
@@ -123,7 +123,7 @@ public class MovementPlayer : MonoBehaviour
 
     }
 
-    
+
 
     public void ButtonLeftDown()
     {
@@ -178,31 +178,33 @@ public class MovementPlayer : MonoBehaviour
 
     private void CheckKnockback()
     {
-        if(Time.time >= knockbackStartTime + knockbackDuration && knockback)
+        if (Time.time >= knockbackStartTime + knockbackDuration && knockback)
         {
             knockback = false;
             rb.velocity = new Vector2(0.0f, rb.velocity.y);
         }
 
-    IEnumerator Invulnerable()
-    {
-        Physics2D.IgnoreLayerCollision(8, 9, true);
-        c.a = 0.5f;
-        renderPlayer.material.color = c;
+        IEnumerator Invulnerable()
+        {
+            Physics2D.IgnoreLayerCollision(8, 9, true);
+            c.a = 0.5f;
+            renderPlayer.material.color = c;
 
-        //fungsi buat wait time
-        yield return new WaitForSeconds(invulnerableTime);
+            //fungsi buat wait time
+            yield return new WaitForSeconds(invulnerableTime);
 
-        Physics2D.IgnoreLayerCollision(8, 9, false);
-        c.a = 1f;
-        renderPlayer.material.color = c;
+            Physics2D.IgnoreLayerCollision(8, 9, false);
+            c.a = 1f;
+            renderPlayer.material.color = c;
+        }
+
+        //public void isHitTrue (bool isHit)
+        //{
+        //    isHitCheck = isHit;
+
+        //}
+
     }
-
-    public void isHitTrue (bool isHit)
-    {
-        isHitCheck = isHit;
-
-    }
-
 }
+
 
