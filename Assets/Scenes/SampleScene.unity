@@ -7310,6 +7310,19 @@ MonoBehaviour:
   currentHp: 0
   currentAtk: 0
   currentDef: 0
+--- !u!114 &1904945145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134861459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4cc787f2e201d34e948465babea5ca9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
 --- !u!1 &1931115014
 GameObject:
   m_ObjectHideFlags: 0
