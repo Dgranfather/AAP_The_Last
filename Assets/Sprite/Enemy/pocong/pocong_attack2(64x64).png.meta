@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4b70baeabc45af345a5cae602de70bf6
+guid: 992567505f1114943a186288551f864e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pocong_walk(64x64)_0
+      name: pocong_attack2(64x64)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 220442efcaebbfd43979070ea1d6f49d
-      internalID: -1311384397
+      spriteID: 5a22c03b7ba034945aa98f50733d3b57
+      internalID: 1029341192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pocong_walk(64x64)_1
+      name: pocong_attack2(64x64)_1
       rect:
         serializedVersion: 2
         x: 640
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb66ec8ccc4fe784b88d264b326d460e
-      internalID: 1780767183
+      spriteID: 069ce9651b838c4488a4237277776670
+      internalID: 31533030
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pocong_walk(64x64)_2
+      name: pocong_attack2(64x64)_2
       rect:
         serializedVersion: 2
         x: 1280
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c89e353a361cb0340a04abba053f9a2f
-      internalID: -1632237337
+      spriteID: b09b11f9a40daac46a41ba5da41dafaf
+      internalID: -1833583951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pocong_walk(64x64)_3
+      name: pocong_attack2(64x64)_3
       rect:
         serializedVersion: 2
         x: 1920
@@ -194,14 +194,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2f8c763fa124bde43a879b2d9bb77e91
-      internalID: 380503342
+      spriteID: 3bc79ff19d956364d816ab502360562c
+      internalID: 518045069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pocong_walk(64x64)_4
+      name: pocong_attack2(64x64)_4
       rect:
         serializedVersion: 2
         x: 2560
@@ -215,14 +215,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b19654f79309b8d4982dd2a467733db2
-      internalID: 1133998861
+      spriteID: f0e1b047a0326c247900baa64ece8e2b
+      internalID: 266685150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pocong_walk(64x64)_5
+      name: pocong_attack2(64x64)_5
       rect:
         serializedVersion: 2
         x: 3200
@@ -236,8 +236,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1a0941bf719419f4f864a321d74bec57
-      internalID: 92865060
+      spriteID: 27034dc977c6ea847bc3db319ba7d0e2
+      internalID: -2086019985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pocong_attack2(64x64)_6
+      rect:
+        serializedVersion: 2
+        x: 3840
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98cf9c8b13c093b4286c3fbff8024eab
+      internalID: -353327887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pocong_attack2(64x64)_7
+      rect:
+        serializedVersion: 2
+        x: 4480
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78f8a80c1a79ef440b2dc3d1fcf56c70
+      internalID: -1799961387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pocong_attack2(64x64)_8
+      rect:
+        serializedVersion: 2
+        x: 5120
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8c5fa0fc4b12f94999579e572eeea9b
+      internalID: 1785297928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pocong_attack2(64x64)_9
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 284b2b8d475c79247bcc6589c60344da
+      internalID: -1450403135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pocong_attack2(64x64)_10
+      rect:
+        serializedVersion: 2
+        x: 6400
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92f5336f776e83c40a1795f196a9ce2c
+      internalID: -852298885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pocong_attack2(64x64)_11
+      rect:
+        serializedVersion: 2
+        x: 7040
+        y: 0
+        width: 640
+        height: 640
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 908c4d771d9388e40bd7c3bd0797108f
+      internalID: -1720776604
       vertices: []
       indices: 
       edges: []
@@ -253,12 +379,18 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pocong_walk(64x64)_4: 1133998861
-      pocong_walk(64x64)_1: 1780767183
-      pocong_walk(64x64)_3: 380503342
-      pocong_walk(64x64)_2: -1632237337
-      pocong_walk(64x64)_0: -1311384397
-      pocong_walk(64x64)_5: 92865060
+      pocong_attack2(64x64)_1: 31533030
+      pocong_attack2(64x64)_5: -2086019985
+      pocong_attack2(64x64)_2: -1833583951
+      pocong_attack2(64x64)_11: -1720776604
+      pocong_attack2(64x64)_7: -1799961387
+      pocong_attack2(64x64)_4: 266685150
+      pocong_attack2(64x64)_0: 1029341192
+      pocong_attack2(64x64)_3: 518045069
+      pocong_attack2(64x64)_8: 1785297928
+      pocong_attack2(64x64)_6: -353327887
+      pocong_attack2(64x64)_9: -1450403135
+      pocong_attack2(64x64)_10: -852298885
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

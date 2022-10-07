@@ -15,6 +15,9 @@ public class CombatAttack : MonoBehaviour
     private int attack1Damage, attack2Damage, attack3Damage;
 
     [SerializeField]
+    private float stunDamageAmount = 1f;
+
+    [SerializeField]
     private Transform attack1HitBoxPos;
 
     [SerializeField]
@@ -64,6 +67,7 @@ public class CombatAttack : MonoBehaviour
 
         attackDetails.damageAmount = attack1Damage;
         attackDetails.position = transform.position;
+        attackDetails.stunDamageAmount = stunDamageAmount;
 
             foreach(Collider2D collider in detectedObjects)
         {
@@ -79,6 +83,7 @@ public class CombatAttack : MonoBehaviour
 
         attackDetails.damageAmount = attack2Damage;
         attackDetails.position = transform.position;
+        attackDetails.stunDamageAmount = stunDamageAmount;
 
         foreach (Collider2D collider in detectedObjects)
         {
@@ -94,6 +99,7 @@ public class CombatAttack : MonoBehaviour
 
         attackDetails.damageAmount = attack3Damage;
         attackDetails.position = transform.position;
+        attackDetails.stunDamageAmount = stunDamageAmount;
 
         foreach (Collider2D collider in detectedObjects)
         {
@@ -117,7 +123,7 @@ public class CombatAttack : MonoBehaviour
             direction = -1;
         }
 
-        MP.Knockback(direction);
+        //MP.Knockback(direction);
     }
 
 
