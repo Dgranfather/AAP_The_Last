@@ -7,13 +7,13 @@ public class MovementPlayer : MonoBehaviour
 {
     private Rigidbody2D rb;
     public Animator animator;
-    private float knockbackStartTime;
+    //private float knockbackStartTime;
 
-    [SerializeField]
-    private float knockbackDuration;
+    //[SerializeField]
+    //private float knockbackDuration;
 
-    [SerializeField]
-    private Vector2 knockbackSpeed;
+    //[SerializeField]
+    //private Vector2 knockbackSpeed;
 
 
     public float moveSpeed;
@@ -22,7 +22,7 @@ public class MovementPlayer : MonoBehaviour
     public bool ButtonRight;
     private bool canJump;
     private bool facingRight = true;
-    private bool knockback;
+    //private bool knockback;
 
 
 
@@ -33,7 +33,7 @@ public class MovementPlayer : MonoBehaviour
     public float invulnerableTime;
 
     public bool isHitCheck = false;
-    //[SerializeField] private float knockback;
+    [SerializeField] private float knockback;
 
     // Start is called before the first frame update
     void Start()
@@ -52,7 +52,7 @@ public class MovementPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckKnockback();
+        //CheckKnockback();
     }
 
     private void FixedUpdate()
@@ -60,13 +60,13 @@ public class MovementPlayer : MonoBehaviour
         float move;
         Vector3 characterScale = transform.localScale;
 
-        if (ButtonLeft && !knockback)
+        if (ButtonLeft /*&& /*!knockback*/)
         {
             move = -moveSpeed * Time.deltaTime;
             characterScale.x = -1;
             facingRight = false;
         }
-        else if (ButtonRight && !knockback)
+        else if (ButtonRight /*&& /*!knockback*/)
         {
             move = moveSpeed * Time.deltaTime;
             characterScale.x = 1;
@@ -81,14 +81,14 @@ public class MovementPlayer : MonoBehaviour
         {
             if (facingRight)
             {
-                //rb.velocity = new Vector2(-knockback, knockback);
-                //rb.AddForce(new Vector2(-knockback, knockback));
+                rb.velocity = new Vector2(-knockback, knockback);
+                rb.AddForce(new Vector2(-knockback, knockback));
                 StartCoroutine("Invulnerable");
             }
             else
             {
-                //rb.velocity = new Vector2(knockback, knockback);
-                //rb.AddForce(new Vector2(knockback, knockback));
+                rb.velocity = new Vector2(knockback, knockback);
+                rb.AddForce(new Vector2(knockback, knockback));
                 StartCoroutine("Invulnerable");
             }
             isHitCheck = false;
@@ -169,21 +169,21 @@ public class MovementPlayer : MonoBehaviour
     }
 
 
-    public void Knockback(int direction)
-    {
-        knockback = true;
-        knockbackStartTime = Time.time;
-        rb.velocity = new Vector2(knockbackSpeed.x * direction, knockbackSpeed.y);
-    }
+    //public void Knockback(int direction)
+    //{
+    //    knockback = true;
+    //    knockbackStartTime = Time.time;
+    //    rb.velocity = new Vector2(knockbackSpeed.x * direction, knockbackSpeed.y);
+    //}
 
-    private void CheckKnockback()
-    {
-        if (Time.time >= knockbackStartTime + knockbackDuration && knockback)
-        {
-            knockback = false;
-            rb.velocity = new Vector2(0.0f, rb.velocity.y);
-        }
-
+    //private void CheckKnockback()
+    //{
+    //    //if (Time.time >= knockbackStartTime + knockbackDuration && knockback)
+    //    //{
+    //    //    knockback = false;
+    //    //    rb.velocity = new Vector2(0.0f, rb.velocity.y);
+    //    //}
+    //}
         IEnumerator Invulnerable()
         {
             Physics2D.IgnoreLayerCollision(8, 9, true);
@@ -198,13 +198,13 @@ public class MovementPlayer : MonoBehaviour
             renderPlayer.material.color = c;
         }
 
-        //public void isHitTrue (bool isHit)
-        //{
-        //    isHitCheck = isHit;
+        public void isHitTrue(bool isHit)
+        {
+            isHitCheck = isHit;
 
-        //}
+        }
 
-    }
+    
 }
 
 
