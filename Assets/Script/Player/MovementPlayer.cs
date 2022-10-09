@@ -82,13 +82,13 @@ public class MovementPlayer : MonoBehaviour
             if (facingRight)
             {
                 rb.velocity = new Vector2(-knockback, knockback);
-                rb.AddForce(new Vector2(-knockback, knockback));
+                //rb.AddForce(new Vector2(-knockback, knockback));
                 StartCoroutine("Invulnerable");
             }
             else
             {
                 rb.velocity = new Vector2(knockback, knockback);
-                rb.AddForce(new Vector2(knockback, knockback));
+                //rb.AddForce(new Vector2(knockback, knockback));
                 StartCoroutine("Invulnerable");
             }
             isHitCheck = false;

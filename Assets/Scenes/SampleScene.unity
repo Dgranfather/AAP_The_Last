@@ -4964,7 +4964,7 @@ PrefabInstance:
       objectReference: {fileID: 347904917}
     - target: {fileID: 7521769420765588440, guid: 404cb62e9c2125b4e88fa56fe307a6f0, type: 3}
       propertyPath: maxHealth
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7521769420765588440, guid: 404cb62e9c2125b4e88fa56fe307a6f0, type: 3}
       propertyPath: particleBody
@@ -4972,7 +4972,7 @@ PrefabInstance:
       objectReference: {fileID: 5654554311969651446, guid: 647b56a38c7eef446916799db9637b2b, type: 3}
     - target: {fileID: 7521769420765588440, guid: 404cb62e9c2125b4e88fa56fe307a6f0, type: 3}
       propertyPath: currentHealth
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7521769420765588440, guid: 404cb62e9c2125b4e88fa56fe307a6f0, type: 3}
       propertyPath: particleBlood
@@ -5061,6 +5061,14 @@ PrefabInstance:
     - target: {fileID: 8667502947847720295, guid: 404cb62e9c2125b4e88fa56fe307a6f0, type: 3}
       propertyPath: jumpForce
       value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667502947847720295, guid: 404cb62e9c2125b4e88fa56fe307a6f0, type: 3}
+      propertyPath: knockback
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8667502947847720295, guid: 404cb62e9c2125b4e88fa56fe307a6f0, type: 3}
+      propertyPath: invulnerableTime
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 8667502947847720295, guid: 404cb62e9c2125b4e88fa56fe307a6f0, type: 3}
       propertyPath: knockbackSpeed.x
@@ -5843,7 +5851,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1719770789}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42dadc8e7de7cb94488069c9b087f93c, type: 3}
   m_Name: 
@@ -6214,7 +6222,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134861459}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a197885cff7332e4e8bf189cae0bb38e, type: 3}
   m_Name: 
@@ -6228,6 +6236,7 @@ MonoBehaviour:
   currentHp: 0
   currentAtk: 0
   currentDef: 0
+  iHp: 0
 --- !u!1 &2005481452
 GameObject:
   m_ObjectHideFlags: 0

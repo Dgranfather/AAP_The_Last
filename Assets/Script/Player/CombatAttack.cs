@@ -124,6 +124,7 @@ public class CombatAttack : MonoBehaviour
         }
 
         //MP.Knockback(direction);
+        GetComponent<MovementPlayer>().isHitTrue(true);
     }
 
 

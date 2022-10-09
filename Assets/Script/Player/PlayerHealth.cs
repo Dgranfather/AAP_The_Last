@@ -10,6 +10,9 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
     public HealthBar healthBar;
 
+    public int iMaxhP;
+    public int iCurrentHp;
+
     [SerializeField]
     private GameObject
         particleBody,
@@ -18,13 +21,13 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthBar.SetMaxHealth(maxHealth);
-        currentHealth = maxHealth;
+      
     }
     
     // Update is called once per frame
     private void FixedUpdate()
     {
+
         healthBar.SetMaxHealthText(maxHealth);
         healthBar.SetCurrentHealthText(currentHealth);
     }
@@ -34,7 +37,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetValue(currentHealth);
 
-        if(currentHealth <= 0.0f)
+        if(currentHealth <= 0)
         {
             Die();
         }
@@ -49,6 +52,10 @@ public class PlayerHealth : MonoBehaviour
 
     public void setMaxHealthPlayer(int health)
     {
-        maxHealth = health;
+
+        iMaxhP = health;
+        maxHealth = iMaxhP;
+        healthBar.SetMaxHealth(maxHealth);
+        currentHealth = maxHealth;
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -21,13 +22,12 @@ public class PlayerStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHp = hpLevel[1];
-        currentAtk = atkLevel[1];
-        currentDef = defLevel[1];
+        currentLevel = 1;
+        currentHp = hpLevel[currentLevel];
+        currentAtk = atkLevel[currentLevel];
+        currentDef = defLevel[currentLevel];
 
-        thePlayerHealth = FindObjectOfType<PlayerHealth>();
         GetComponent<PlayerHealth>().setMaxHealthPlayer(currentHp);
-        Debug.Log("current level : " + currentLevel);
     }
 
     // Update is called once per frame
@@ -53,5 +53,10 @@ public class PlayerStats : MonoBehaviour
         currentDef = defLevel[currentLevel];
 
         thePlayerHealth.maxHealth = currentHp;
+    }
+
+    public void setMaxHP(int hp)
+    {
+        currentHp = hp;
     }
 }
