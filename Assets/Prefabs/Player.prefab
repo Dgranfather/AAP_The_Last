@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 252260167}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Attack3Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 425106732}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Attack2Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 766547330}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: Attack1Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -86,7 +86,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 766547329}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6, y: -0.96, z: 0}
+  m_LocalPosition: {x: 4.8, y: -0.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -110,7 +110,9 @@ GameObject:
   - component: {fileID: 7521769420765588440}
   - component: {fileID: 7521769420765588441}
   - component: {fileID: 7521769420765588449}
-  m_Layer: 6
+  - component: {fileID: 1904945143}
+  - component: {fileID: 1904945144}
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -174,7 +176,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -799880951
-  m_SortingLayer: 1
+  m_SortingLayer: 9
   m_SortingOrder: 10
   m_Sprite: {fileID: -1495993514, guid: a9a8f6d40cd432945ab8ba684b901daf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -202,11 +204,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!70 &8667502947847720290
 CapsuleCollider2D:
@@ -238,9 +240,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7521769420765588439}
   moveSpeed: 300
-  jumpForce: 300
+  jumpForce: 600
   ButtonLeft: 0
   ButtonRight: 0
+  invulnerableTime: 1.5
+  isHitCheck: 0
+  knockback: 10
 --- !u!95 &7521769420765588439
 Animator:
   serializedVersion: 4
@@ -273,9 +278,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de7e1635f2092e94f8af18102b2c150c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 500
+  maxHealth: 0
   currentHealth: 0
   healthBar: {fileID: 0}
+  iMaxhP: 0
+  iCurrentHp: 0
+  particleBody: {fileID: 5654554311969651446, guid: 647b56a38c7eef446916799db9637b2b, type: 3}
+  particleBlood: {fileID: 8115839104151021790, guid: c45046e1c029f2e4ea8a3f66c177ef02, type: 3}
 --- !u!114 &7521769420765588441
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,11 +319,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7521769420765588439}
   attack1Radius: 1
-  attack1Damage: 20
   attack2Radius: 1
-  attack2Damage: 30
   attack3Radius: 1
-  attack3Damage: 50
+  attack1Damage: 10
+  attack2Damage: 20
+  attack3Damage: 30
+  stunDamageAmount: 1
   attack1HitBoxPos: {fileID: 766547330}
   attack2HitBoxPos: {fileID: 425106732}
   attack3HitBoxPos: {fileID: 252260167}
@@ -322,3 +332,77 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   isAttacking: 0
+--- !u!114 &1904945143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8667502947847720289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_ImpulseShape: 2
+    m_CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_ImpulseDuration: 0.2
+    m_ImpulseType: 3
+    m_DissipationRate: 0.25
+    m_RawSignal: {fileID: 11400000, guid: ff7ce1ba2f1c16d47a1b5614e602070e, type: 2}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 1
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.2
+      m_DecayTime: 0.7
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 100
+    m_PropagationSpeed: 343
+  m_DefaultVelocity: {x: -1, y: -1, z: 0}
+--- !u!114 &1904945144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8667502947847720289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a197885cff7332e4e8bf189cae0bb38e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevel: 0
+  currentExp: 0
+  toLevelUp: 0a000000190000003200000064000000c8000000
+  hpLevel: 320000006400000096000000c8000000fa000000
+  atkLevel: 0a000000140000001e0000002800000032000000
+  defLevel: 050000000a0000000f0000001400000019000000
+  currentHp: 0
+  currentAtk: 0
+  currentDef: 0
